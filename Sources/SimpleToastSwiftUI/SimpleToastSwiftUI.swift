@@ -74,7 +74,7 @@ extension View {
     ///   - message: The message to be displayed in the toast.
     ///   - duration: The duration the toast is shown for, in seconds.
     /// - Returns: A view that includes the toast overlay.
-    func toast(
+    public func toast(
         isShowing: Binding<Bool>,
         message: String,
         duration: Double = 2.0
