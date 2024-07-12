@@ -12,12 +12,12 @@ struct ContentView: View {
     @EnvironmentObject var toastState: ToastState
 
     var body: some View {
-        VStack {
+        ZStack {
+            Color.gray
             Spacer()
             ChildView()
             Spacer()
         }
-        .padding()
         .toast(state: toastState)
     }
 }

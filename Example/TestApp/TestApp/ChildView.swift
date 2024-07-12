@@ -13,17 +13,31 @@ struct ChildView: View {
     @EnvironmentObject var toastState: ToastState
 
     var body: some View {
-        ZStack {
+        VStack(spacing: 16) {
             Button {
-                toastState.showToast(message: "Sample Toast", category: .error)
+                toastState.showToast(message: "Sample Error Toast", category: .error)
             } label: {
                 Image(systemName: "swift")
-				Text("Click for toast")
+				Text("Click for Error Toast")
             }
-            .padding()
-            .foregroundColor(.white)
-            .background(Color.gray)
-            .cornerRadius(.infinity)
+            Button {
+                toastState.showToast(message: "Sample Warning Toast", category: .warning)
+            } label: {
+                Image(systemName: "swift")
+                Text("Click for Warning Toast")
+            }
+            Button {
+                toastState.showToast(message: "Sample Success Toast", category: .success)
+            } label: {
+                Image(systemName: "swift")
+                Text("Click for Success Toast")
+            }
+            Button {
+                toastState.showToast(message: "Sample Custom Toast")
+            } label: {
+                Image(systemName: "swift")
+                Text("Click for Custom Toast")
+            }
         }
     }
 }
