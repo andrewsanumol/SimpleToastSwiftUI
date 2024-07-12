@@ -112,13 +112,12 @@ public class ToastState: ObservableObject {
 /// `ToastConfig` allows you to customize various aspects of a toast message,
 /// such as alignment, background color, text color, text font, and animation.
 public struct ToastConfig {
-    enum ToastCategory {
+    public enum ToastCategory {
         case success
         case error
         case warning
         case custom
     }
-    var toastCategory: ToastCategory = .custom
     /// The alignment of the toast message on the screen.
     /// This property determines where the toast message will be displayed.
     /// For example, `.top` aligns the toast message at the top of the screen.
@@ -155,7 +154,11 @@ public struct ToastConfig {
     /// for this duration before automatically disappearing.
     public var duration: Double = 2.0
 
-    public init(alignment: Alignment = .bottom, backgroundColor: Color = Color.white, textColor: Color = Color.black, cornerRadius: Double = 8.0, textPadding:Double = 10.0, textFont: Font = .subheadline, animation: Animation = .easeInOut(duration: 2.0)) {
+    // The category of the toast, determining its style and behavior.
+    public var toastCategory: ToastCategory = .custom
+
+
+    public init(alignment: Alignment = .bottom, backgroundColor: Color = Color.white, textColor: Color = Color.black, cornerRadius: Double = 8.0, textPadding:Double = 10.0, textFont: Font = .subheadline, animation: Animation = .easeInOut(duration: 2.0), category: ToastCategory = .custom) {
         self.alignment = alignment
         self.backgroundColor = backgroundColor
         self.cornerRadius = cornerRadius
@@ -163,5 +166,6 @@ public struct ToastConfig {
         self.textColor = textColor
         self.textFont = textFont
         self.animation = animation
+        self.toastCategory = category
     }
 }

@@ -58,14 +58,6 @@ struct ToastModifier: ViewModifier {
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 16)
                     }
-                    Text(state.toastMessage)
-                        .font(state.config.textFont)
-                        .foregroundColor(state.config.textColor)
-                        .padding(state.config.textPadding)
-                        .background(state.config.backgroundColor)
-                        .cornerRadius(state.config.cornerRadius)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 16)
                 }
                 .transition(.opacity)
                 .opacity(state.showToast ? 1 : 0)
