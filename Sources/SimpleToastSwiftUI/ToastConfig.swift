@@ -14,13 +14,7 @@ import SwiftUI
 /// and content of a toast message. It provides methods to show a toast with a message
 /// and optional configuration.
 public class ToastState: ObservableObject {
-    enum ToastCategory {
-        case success
-        case error
-        case warning
-        case custom
-    }
-    var toastCategory: ToastCategory = .custom
+
     /// Indicates whether the toast message should be shown.
     /// This property is published, so any views observing this object will be updated
     /// when the value changes.
@@ -118,7 +112,13 @@ public class ToastState: ObservableObject {
 /// `ToastConfig` allows you to customize various aspects of a toast message,
 /// such as alignment, background color, text color, text font, and animation.
 public struct ToastConfig {
-
+    enum ToastCategory {
+        case success
+        case error
+        case warning
+        case custom
+    }
+    var toastCategory: ToastCategory = .custom
     /// The alignment of the toast message on the screen.
     /// This property determines where the toast message will be displayed.
     /// For example, `.top` aligns the toast message at the top of the screen.
