@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SimpleToastSwiftUI
 
 @main
 struct TestAppApp: App {
+    @StateObject var toast = ToastState(toastOptions: ToastConfig(alignment: .bottom, category: .custom))
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(toast)
         }
     }
 }

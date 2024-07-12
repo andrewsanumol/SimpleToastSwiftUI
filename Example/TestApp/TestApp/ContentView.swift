@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
+import SimpleToastSwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var toastState: ToastState
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Spacer()
+            ChildView()
+            Spacer()
         }
         .padding()
+        .toast(state: toastState)
     }
 }
 

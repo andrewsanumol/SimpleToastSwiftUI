@@ -1,0 +1,15 @@
+{
+  "originHash" : "4eecfe76fdc9dbf40db2dfc6802d69912ea26587adf02bef74cf1c1dfdfe0235",
+  "pins" : [
+    {
+      "identity" : "simpletoastswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/andrewsanumol/SimpleToastSwiftUI.git",
+      "state" : {
+        "revision" : "de66ac37dde2011dc79ba2c7571ce0d2d95e42ee",
+        "version" : "1.0.8"
+      }
+    }
+  ],
+  "version" : 3
+}
