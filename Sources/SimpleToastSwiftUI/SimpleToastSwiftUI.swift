@@ -20,7 +20,7 @@ struct ToastModifier: ViewModifier {
             content
             if state.showToast {
                 VStack {
-                    switch state.config.toastCategory {
+                    switch state.toastCategory {
                     case .success:
                         Text(state.toastMessage)
                             .font(state.config.textFont)

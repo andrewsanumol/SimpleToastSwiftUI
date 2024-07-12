@@ -25,6 +25,8 @@ public class ToastState: ObservableObject {
     /// when the value changes.
     var toastMessage: String = ""
 
+    var toastCategory: ToastCategory = .custom
+
     //  A published property that holds the configuration settings for the toast.
     var config: ToastConfig
 
@@ -61,7 +63,9 @@ public class ToastState: ObservableObject {
 
      - Parameter message: The message to be displayed in the toast.
      */
-    public func showToast(message: String) {
+    public func showToast(message: String,
+                          category: ToastCategory? = nil) {
+        self.toastCategory = category ?? self.config.toastCategory
         if self.showToast {
             workItem?.cancel()
             DispatchQueue.main.async { [weak self] in
@@ -92,32 +96,32 @@ public class ToastState: ObservableObject {
         workItem = nil
     }
 
-    /// Shows the toast with the specified message and configuration.
-    /// - Parameters:
-    ///   - message: The message to display in the toast.
-    ///   - toastConfig: The configuration for the toast's appearance and behavior.
-    public func showToast(message: String, duration: Double = 2.0) {
-        self.toastMessage = message
-        showToast = true
-    }
-
     public init(toastOptions: ToastConfig) {
         self.config = toastOptions
     }
 }
 
-
+/**
+ An enumeration representing the different categories of toast messages.
+ 
+ - `success`: Represents a toast indicating a successful operation.
+ - `error`: Represents a toast indicating an error or failure.
+ - `warning`: Represents a toast warning about a potential issue.
+ - `custom`: Represents a custom category that can be used for specific
+ use cases beyond the standard categories.
+ */
+public enum ToastCategory {
+    case success
+    case error
+    case warning
+    case custom
+}
 /// Configuration for displaying a toast message.
 ///
 /// `ToastConfig` allows you to customize various aspects of a toast message,
 /// such as alignment, background color, text color, text font, and animation.
 public struct ToastConfig {
-    public enum ToastCategory {
-        case success
-        case error
-        case warning
-        case custom
-    }
+
     /// The alignment of the toast message on the screen.
     /// This property determines where the toast message will be displayed.
     /// For example, `.top` aligns the toast message at the top of the screen.
