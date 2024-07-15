@@ -13,7 +13,7 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            Color.gray
+            Color.gray.opacity(0.3)
             Spacer()
             ChildView()
             Spacer()

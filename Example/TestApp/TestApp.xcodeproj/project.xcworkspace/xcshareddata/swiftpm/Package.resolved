@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/andrewsanumol/SimpleToastSwiftUI.git",
       "state" : {
-        "revision" : "de66ac37dde2011dc79ba2c7571ce0d2d95e42ee",
-        "version" : "1.0.8"
+        "revision" : "4d0f54a4e1888fb0d80e292365293b0f069954e5",
+        "version" : "1.0.11"
       }
     }
   ],
